@@ -246,7 +246,7 @@ tmp1 &lt;- strsplit(as.character(tmp1), split = &quot; &quot;)
 MaxAct &lt;- tmp1[[a]][2]
 </code></pre>
 
-<p>From this we find that the <strong>maximum activity</strong> occurs during the 08:35:00 to 08:40:00 interval.  </p>
+<p>From this we find that the <strong>maximum activity</strong>, 206.2 steps, occurs during the 08:35:00 to 08:40:00 interval.  </p>
 
 <h3>Dealing with NAs</h3>
 
@@ -266,7 +266,7 @@ MaxAct &lt;- tmp1[[a]][2]
 </code></pre>
 
 <p>In fact 2304 values out of the total 17568 are missing.<br/>
-Lets replace each NA with the average across all other days for the particular time interval containing the NA. First we&#39;ll create a dataframe containing the average number of steps for each of the missing intervals. I used the data from the StepsIntMean to do this. Then we&#39;ll create a new dataframe &ldquo;activityClean&rdquo; where the NA&#39;s in the activity dataset have been replace with the average values for the cooresponding intervals. I used a for loop to do so.</p>
+I&#39;m going to replace each NA with the average across all other days for the particular time interval containing the NA. First we&#39;ll create a dataframe containing the average number of steps for each of the missing intervals (we already have this in the StepsIntMean). Then we&#39;ll create a new dataframe &ldquo;activityClean&rdquo; where the NA&#39;s in the activity dataset have been replace with the average values for the cooresponding intervals. I used a for loop to do so.</p>
 
 <pre><code class="r">library(plyr)
 a &lt;- which(is.na(activity))

@@ -49,7 +49,7 @@ a<-with(StepsIntMean,which(AvgNumSteps==max(AvgNumSteps)))
 tmp1<-strsplit(as.character(tmp1),split=" ")
 MaxAct<-tmp1[[a]][2]
 ```
-From this we find that the **maximum activity** occurs during the `r MaxAct` to `r tmp1[[a+1]][2]` interval.  
+From this we find that the **maximum activity**, `r max(StepsIntMean$AvgNumSteps)` steps, occurs during the `r MaxAct` to `r tmp1[[a+1]][2]` interval.  
   
 ### Dealing with NAs
 Looking at the dataset "activity" we find that the steps column contains many missing vaues.
@@ -57,7 +57,7 @@ Looking at the dataset "activity" we find that the steps column contains many mi
 summary(activity)
 ```
 In fact `r sum(is.na(activity[,1]))` values out of the total `r nrow(activity)` are missing.  
-Lets replace each NA with the average across all other days for the particular time interval containing the NA. First we'll create a dataframe containing the average number of steps for each of the missing intervals. I used the data from the StepsIntMean to do this. Then we'll create a new dataframe "activityClean" where the NA's in the activity dataset have been replace with the average values for the cooresponding intervals. I used a for loop to do so.
+I'm going to replace each NA with the average across all other days for the particular time interval containing the NA. First we'll create a dataframe containing the average number of steps for each of the missing intervals (we already have this in the StepsIntMean). Then we'll create a new dataframe "activityClean" where the NA's in the activity dataset have been replace with the average values for the cooresponding intervals. I used a for loop to do so.
 ``` {r}
 library(plyr)
 a<-which(is.na(activity))
